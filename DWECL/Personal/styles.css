@@ -1,0 +1,29 @@
+body {
+    background-color: lightgoldenrodyellow;
+}
+
+.ej h3 {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ej {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-color: lightblue;
+    border: 2px solid blue;
+    border-radius: 10px;
+    gap: 10px;
+    margin: 20px;
+}

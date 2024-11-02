@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Científica</title>
+    <script src="calculadora.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .calculadora {
+            width: 300px;
+            background-color: #2d2950;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 8px;
+            box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        #display {
+            width: 100%;
+            height: 40px;
+            text-align: right;
+            padding: 10px;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #fff;
+        }
+
+        .boton {
+            width: 22%;
+            height: 50px;
+            font-size: 1.2em;
+            margin: 2px 0;
+            cursor: pointer;
+            border: 1px solid black;
+            border-radius: 4px;
+            background-color: #eee;
+            transition: background 0.3s;
+        }
+
+        .boton:hover {
+            background-color: #ddd;
+        }
+
+        .operador {
+            background-color: #f9a825;
+            color: white;
+        }
+
+        .igual {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .clear {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .fila {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculadora">
+    <input type="text" id="display" disabled>
+    <div class="fila">
+        <button class="boton clear" onclick="clearDisplay()">C</button>
+        <button class="boton operador" onclick="addToDisplay('Math.sin')">sin</button>
+        <button class="boton operador" onclick="addToDisplay('Math.cos')">cos</button>
+        <button class="boton operador" onclick="addToDisplay('Math.tan')">tan</button>
+    </div>
+    <div class="fila">
+        <button class="boton operador" onclick="addToDisplay('Math.PI')">π</button>
+        <button class="boton operador" onclick="addToDisplay('Math.E')">e</button>
+        <button class="boton operador" onclick="addToDisplay('(')">(</button>
+        <button class="boton operador" onclick="addToDisplay('/')">/</button>
+    </div>
+    <div class="fila">
+        <button class="boton operador" onclick="addToDisplay('Math.sqrt')">√</button>
+        <button class="boton operador" onclick="addToDisplay('Math.log')">log</button>
+        <button class="boton operador" onclick="addToDisplay(')')">)</button>
+        <button class="boton operador" onclick="addToDisplay('*')">*</button>
+    </div>
+    <div class="fila">
+        <button class="boton" onclick="addToDisplay('7')">7</button>
+        <button class="boton" onclick="addToDisplay('8')">8</button>
+        <button class="boton" onclick="addToDisplay('9')">9</button>
+        <button class="boton operador" onclick="addToDisplay('-')">-</button>
+    </div>
+    <div class="fila">
+        <button class="boton" onclick="addToDisplay('4')">4</button>
+        <button class="boton" onclick="addToDisplay('5')">5</button>
+        <button class="boton" onclick="addToDisplay('6')">6</button>
+        <button class="boton operador" onclick="addToDisplay('+')">+</button>
+    </div>
+    <div class="fila">
+        <button class="boton" onclick="addToDisplay('1')">1</button>
+        <button class="boton" onclick="addToDisplay('2')">2</button>
+        <button class="boton" onclick="addToDisplay('3')">3</button>
+        <button class="boton igual" onclick="calculate()">=</button>
+    </div>
+    <div class="fila">
+        <button class="boton" onclick="addToDisplay('0')">0</button>
+        <button class="boton" onclick="addToDisplay('.')">.</button>
+    </div>
+</div>
+</body>
+</html>
