@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Prueba",
+            "request": "launch",
+            "mainClass": "DWECL.Tema_4.Prueba",
+            "projectName": "2DAW_54d0f0aa"
+        },
+        {
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",

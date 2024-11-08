@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar texto al hacer clic</title>
+</head>
+<body>
+    <!-- Elemento donde se mostrará el disco -->
+    <div id="disco"></div>
+
+    <!-- Botón para mostrar el texto -->
+    <button id="mostrarDiscoBtn">Mostrar Disco</button>
+
+    <script>
+        // Paso 2: Define los discos y el array
+        let disco1 = "Disco 1";
+        let disco2 = "Disco 2";
+        let disco3 = "Disco 3";
+        let discos = new Array(disco1, disco2, disco3); // Agrega los discos que necesites
+
+        // Paso 3: Selecciona el botón y el elemento donde mostrarás el disco
+        let mostrar = document.getElementById("disco");
+        let boton = document.getElementById("mostrarDiscoBtn");
+
+        // Paso 4: Agrega el evento al botón para mostrar el texto del primer disco
+        boton.onclick = function() {
+            mostrar.innerHTML = discos[0].toString(); // Puedes cambiar el índice para mostrar otros discos
+        };
+    </script>
+</body>
+</html>
