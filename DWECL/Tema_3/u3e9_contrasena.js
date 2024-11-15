@@ -1,9 +1,9 @@
 function contrasena() {
     let contrasena = prompt("Introduce tu contraseña:");
-    let errores = 0;
+    let errores = false;
     if (contrasena.length < 8 || contrasena.length > 16) {
         alert("La contraseña debe tener entre 8 y 16 caracteres");
-        errores++;
+        errores = true;
     }
     let mayusc = 0;
     for (let i = 0; i < contrasena.length; i++) {
@@ -13,7 +13,7 @@ function contrasena() {
     }
     if (mayusc == 0) {
         alert("La contraseña debe tener al menos una mayúscula");
-        errores++;
+        errores = true;
     }
     let minusc = 0;
     for (let i = 0; i < contrasena.length; i++) {
@@ -23,7 +23,7 @@ function contrasena() {
     }
     if (minusc == 0) {
         alert("La contraseña debe tener al menos una minúscula");
-        errores++;
+        errores = true;
     }
     let numeros = 0;
     for (let i = 0; i < contrasena.length; i++) {
@@ -33,16 +33,16 @@ function contrasena() {
     }
     if (numeros == 0) {
         alert("La contraseña debe tener al menos un número");
-        errores++;
+        errores = true;
     }
     if (contrasena.includes('-') || contrasena.includes('_') || contrasena.includes('@') ||
     contrasena.includes('#') || contrasena.includes('%' || contrasena.includes('&'))) {
 
     } else {
         alert("La contraseña debe tener al menos uno de estos caracteres: -,_,@,#,%,&")
-        errores++;
+        errores = true;
     }
-    if (errores == 0) {
+    if (errores == false) {
         alert("Tiene una contraseña segura");
     }
 }
