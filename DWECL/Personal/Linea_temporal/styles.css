@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .timeline-container {
+    position: relative;
+    width: 80%;
+    margin: 50px auto;
+  }
+  
+  .timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #000;
+    transform: translateX(-50%);
+  }
+  
+  .timeline-event {
+    position: relative;
+    width: 45%;
+    margin-bottom: 50px;
+  }
+  
+  .timeline-event.left {
+    left: 0;
+    text-align: right;
+  }
+  
+  .timeline-event.right {
+    left: 55%;
+  }
+  
+  .content {
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .content h3 {
+    margin: 0;
+  }
+  
+  .content span {
+    font-size: 0.9em;
+    color: gray;
+  }
+
+  .timeline-event {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease-out;
+  }
+  
+  .timeline-event.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
