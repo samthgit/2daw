@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404</title>
+</head>
+<body>
+    <h2>Formulario de subida de archivos 404</h2>
+    <form action="404.php" method="post" enctype="multipart/form-data">
+        <label for="file">Selecciona un archivo:</label>
+        <input type="file" name="file" id="file" required><br><br>
+
+        <label for="width">Anchura:</label>
+        <input type="number" name="width" id="width" min="1" required><br><br>
+
+        <label for="height">Altura:</label>
+        <input type="number" name="height" id="height" min="1" required><br><br>
+
+        <button type="submit">Subir Archivo</button>
+    </form>
+</body>
+</html>

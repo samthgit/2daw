@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Discos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    select, input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f8f9fa;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Formulario para Discos</h1>
+  <form id="discoForm">
+    <label for="nombreDisco">Nombre del disco:</label>
+    <input type="text" id="nombreDisco" required>
+
+    <label for="grupoCantante">Grupo o Cantante:</label>
+    <input type="text" id="grupoCantante" required>
+
+    <label for="anioPublicacion">Año de publicación:</label>
+    <input type="number" id="anioPublicacion" min="1900" max="2100" required>
+
+    <label for="tipoMusica">Tipo de música:</label>
+    <select id="tipoMusica">
+      <option value="rock">Rock</option>
+      <option value="pop">Pop</option>
+      <option value="punk">Punk</option>
+      <option value="indie">Indie</option>
+    </select>
+
+    <label for="localizacion">Número de estantería:</label>
+    <input type="number" id="localizacion" min="1" required>
+
+    <label for="prestado">Prestado:</label>
+    <input type="checkbox" id="prestado">
+
+    <button type="submit">Guardar Disco</button>
+  </form>
+
+  <div class="result" id="resultado"></div>
+
+  <script>
+    document.getElementById("discoForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Obtener valores del formulario
+      const nombreDisco = document.getElementById("nombreDisco").value;
+      const grupoCantante = document.getElementById("grupoCantante").value;
+      const anioPublicacion = document.getElementById("anioPublicacion").value;
+      const tipoMusica = document.getElementById("tipoMusica").value;
+      const localizacion = document.getElementById("localizacion").value;
+      const prestado = document.getElementById("prestado").checked;
+
+      // Crear objeto del disco
+      const disco = {
+        nombre: nombreDisco,
+        grupo: grupoCantante,
+        anio: anioPublicacion,
+        tipo: tipoMusica,
+        localizacion: localizacion,
+        prestado: prestado
+      };
+
+      // Mostrar resultado
+      document.getElementById("resultado").innerHTML = `
+        <h3>Disco Guardado:</h3>
+        <p><strong>Nombre:</strong> ${disco.nombre}</p>
+        <p><strong>Grupo o Cantante:</strong> ${disco.grupo}</p>
+        <p><strong>Año de Publicación:</strong> ${disco.anio}</p>
+        <p><strong>Tipo de Música:</strong> ${disco.tipo}</p>
+        <p><strong>Localización:</strong> Estantería ${disco.localizacion}</p>
+        <p><strong>Prestado:</strong> ${disco.prestado ? "Sí" : "No"}</p>
+      `;
+
+      // Limpiar formulario
+      document.getElementById("discoForm").reset();
+    });
+  </script>
+
+</body>
+</html>
