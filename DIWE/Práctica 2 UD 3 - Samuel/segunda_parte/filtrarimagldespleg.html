@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda de imágenes - Desplegable</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="formulario">
+        <form action="https://www.google.com/search" method="GET">
+            <label>Buscar:<br>
+                <input class="formBusq" type="text" name="q" required>
+            </label>
+            <br><br>
+            <fieldset>
+                <legend>Tamaño</legend>
+                <select name="tbstm" id="opctam">
+                    <option value="" selected>Cualquier tamaño</option>
+                    <option value="isz:l">Grande</option>
+                    <option value="isz:m">Mediano</option>
+                    <option value="isz:i">Icono</option>
+                </select>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Color</legend>
+                <select name="tbscl" id="opccol">
+                    <option value="" selected>Cualquier color</option>
+                    <option value="ic:color">Color</option>
+                    <option value="ic:gray">Blanco y Negro</option>
+                    <option value="ic:trans">Transparente</option>
+                </select>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Tipo</legend>
+                <select name="tbstp" id="opctip">
+                    <option value="" selected>Cualquier tipo</option>
+                    <option value="itp:clipart">Clip Art</option>
+                    <option value="itp:lineart">Dibujo Lineal</option>
+                    <option value="itp:animated">GIF</option>
+                </select>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Fecha</legend>
+                <select name="tbsfc" id="opcfec">
+                    <option value="" selected>Cualquier fecha</option>
+                    <option value="qdr:d">Últimas 24 horas</option>
+                    <option value="qdr:w">Última semana</option>                    
+                </select>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Licencia</legend>
+                <select name="tbslc" id="opclic">
+                    <option value="" selected>Cualquier licencia</option>
+                    <option value="il:cl">Creative Commons</option>
+                    <option value="il:ol">Comercial y otras</option>                    
+                </select>
+            </fieldset>
+            <br>
+            <input type="hidden" name="tbm" value="isch">
+            <input type="reset" id="reset" value="REINICIAR">
+            <input type="submit" id="buscar" value="BUSCAR">
+        </form>
+    </div>
+</body>
+</html>

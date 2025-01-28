@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    margin: 0; 
+    background-color: #f4f4f4; 
+}
+
+.tablero {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    border: 1px solid black;
+}
+
+.tablero > div {
+    background-color: lightblue; 
+    border: 1px solid #ccc; 
+    text-align: center; 
+    padding: 10px; 
+    height: 150px;
+    width: 150px;
+}
+
+.celda img {
+    display: none;
+    width: 150px;
+    height: 150px;
+}
+
+.modal {
+    display: none;
+}

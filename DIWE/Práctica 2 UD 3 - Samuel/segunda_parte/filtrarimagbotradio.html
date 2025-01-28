@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda de imágenes - Radio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="formulario">
+        <form action="https://www.google.com/search" method="GET">
+            <label>Buscar:<br>
+                <input class="formBusq" type="text" name="q" required>
+            </label>
+            <br><br>
+            <fieldset>
+                <legend>Tamaño</legend>
+                <label for="tamgr">
+                    <input type="radio" name="tbstm" id="tamgr" value="isz:l">Grande
+                </label><br>
+                <label for="tammed">
+                    <input type="radio" name="tbstm" id="tammed" value="isz:m">Mediano
+                </label><br>
+                <label for="tamic">
+                    <input type="radio" name="tbstm" id="tamic" value="isz:i">Icono
+                </label>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Color</legend>
+                <label for="color">
+                    <input type="radio" name="tbscl" id="color" value="ic:color">Color
+                </label><br>
+                <label for="blyng">
+                    <input type="radio" name="tbscl" id="blyng" value="ic:gray">Blanco y Negro
+                </label><br>
+                <label for="trsp">
+                    <input type="radio" name="tbscl" id="trsp" value="ic:trans">Icono
+                </label>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Tipo</legend>
+                <label for="clart">
+                    <input type="radio" name="tbstp" id="clart" value="itp:clipart">Clip Art
+                </label><br>
+                <label for="dibln">
+                    <input type="radio" name="tbstp" id="dibln" value="itp:lineart">Dibujo Lineal
+                </label><br>
+                <label for="gif">
+                    <input type="radio" name="tbstp" id="gif" value="itp:animated">GIF
+                </label>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Fecha</legend>
+                <label for="ulvch">
+                    <input type="radio" name="tbsfc" id="ulvch" value="qdr:d">Últimas 24 horas
+                </label><br>
+                <label for="ulsm">
+                    <input type="radio" name="tbsfc" id="ulsm" value="qdr:w">Última semana
+                </label>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Licencia</legend>
+                <label for="cclc">
+                    <input type="radio" name="tbslc" id="cclc" value="il:cl">Creative Commons
+                </label><br>
+                <label for="colc">
+                    <input type="radio" name="tbslc" id="colc" value="il:ol">Comercial y otras
+                </label>
+            </fieldset>
+            <br>
+            <input type="hidden" name="tbm" value="isch">
+            <input type="reset" id="reset" value="REINICIAR">
+            <input type="submit" id="buscar" value="BUSCAR">
+        </form>
+    </div>
+</body>
+</html>

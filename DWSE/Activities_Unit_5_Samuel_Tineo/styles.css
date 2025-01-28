@@ -1,0 +1,40 @@
+table {
+	border: 2px solid black;
+	border-collapse: collapse;
+	padding: 5px;
+}
+
+th, td {
+	border: 2px solid black;
+	padding: 5px;
+	text-align: center;
+}
+
+th:nth-child(1), th:nth-child(2), th:nth-child(3), th:nth-child(4) {
+	width: 10%;
+}
+
+th:nth-child(5) {
+	width: 40%;
+}
+
+th:nth-child(6), th:nth-child(7) {
+	width: 5%;
+}
+
+.editar, .eliminar {
+	padding: 5px;
+    font-size: 14px;
+    border: 1px solid black;
+    cursor: pointer;
+	border-radius: 5px;
+	color: white;
+}
+
+.editar {
+	background-color: #4CAF50;
+}
+
+.eliminar {
+	background-color: #F44336;
+}

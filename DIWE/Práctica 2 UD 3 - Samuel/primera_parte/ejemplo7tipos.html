@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="formulario">
+        <h1>Contacto</h1>
+        <form action="#" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Datos Personales</legend>
+                <label for="nombre">Nombre: </label>
+                <input type="text" name="nombre" id="nombre"><br><br>
+                <label for="apellidos">Apellidos: </label>
+                <input type="text" name="apellidos" id="apellidos"><br><br>
+                <label for="correo">Correo: </label>
+                <input type="email" name="correo" id="correo"><br><br>
+                <label>Género: </label><br>
+                <label>
+                    <input type="radio" name="genero" id="hombre" value="hombre">Hombre
+                </label>
+                <label>
+                    <input type="radio" name="genero" id="mujer" value="mujer">Mujer
+                </label>
+                <label>
+                    <input type="radio" name="genero" id="otro" value="otro">Otro
+                </label><br><br>                
+                <label for="perfil">Foto de perfil: </label>
+                <input type="file" value="Insertar foto"><br><br>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Sobre ti</legend>
+                <label>Aficiones: </label>
+                Leer<input type="checkbox" name="leer" id="leer" value="leer">
+                Hacer deporte<input type="checkbox" name="deporte" id="deporte" value="deporte">
+                Andar<input type="checkbox" name="andar" id="andar" value="andar">
+                Jugar videojuegos<input type="checkbox" name="videojuego" id="videojuego" value="videojuego">
+                Ver series<input type="checkbox" name="series" id="series" value="series"><br><br>
+                <label for="listaColor">Color favorito: </label>
+                <select name="listaColor" id="listaColor">
+                    <option>Selecciona una opción</option>
+                    <option value="amarillo">Amarillo</option>
+                    <option value="azul">Azul</option>
+                    <option value="rojo">Rojo</option>
+                    <option value="verde">Verde</option>
+                    <option value="naranja">Naranja</option>
+                    <option value="marron">Marrón</option>
+                    <option value="blanco">Blanco</option>
+                    <option value="negro">Negro</option>
+                </select>
+            </fieldset>
+            <br>
+            <div class="flexbuttons">
+                <input type="submit" value="Guardar">
+                <input type="button" value="Resetear" id="resetear">
+            </div>
+        </form>
+    </div>
+    <script>
+        document.getElementById("resetear").addEventListener("click", reseteo);
+
+        function reseteo() {
+            let formulario = document.getElementsByTagName("form")[0];
+            formulario.reset() = "";
+        }
+    </script>
+</body>
+</html>

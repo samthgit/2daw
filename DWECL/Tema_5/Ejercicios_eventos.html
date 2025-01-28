@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica Eventos</title>
+</head>
+<body>
+    <h1>Práctica Eventos</h1>
+
+    <form action="#" get="POST" name="discoForm" id="discoForm">
+        <label for="nombreDisco">Nombre del disco: </label>
+        <input type="text" name="nombreDisco" id="nombreDisco"><br><br>
+
+        <label for="grupoMusica">Grupo de música o cantante: </label>
+        <input type="text" name="grupoMusica" id="grupoMusica"><br><br>
+
+        <label for="anioPublicacion">Año de publicación: </label>
+        <input type="number" name="anioPublicacion" id="anioPublicacion" min="1900" max="2050"><br><br>
+
+        <label for="tipoMusica">Género musical: </label>
+        <select name="tipoMusica" id="tipoMusica">
+            <option value="rock">Rock</option>
+            <option value="pop">Pop</option>
+            <option value="punk">Punk</option>
+            <option value="indie">Indie</option>
+        </select><br><br>
+
+        <label for="localizacion">Localización: </label>
+        <input type="number" name="localizacion" id="localizacion"><br><br>
+
+        <label for="prestado">Prestado: </label>
+        <input type="checkbox" name="prestado" id="prestado" value="true"><br><br>
+
+        <p>Total de caracteres: <span id="contador">0</span></p>
+
+        <input type="submit" name="submit" id="submit" value="Enviar"><br>
+    </form>
+    <script>        
+        // EJERCICIO 1
+        /* Seleccionamos el botón directamente por su id y le añadimos un evento de click. Luego creamos una pequeña función 
+        que muestra un alert pidiendo confirmación al usuario. 
+        */
+        document.getElementById("submit").addEventListener('click', confirmacion);
+
+        function confirmacion() {
+            alert("Haz click para confirmar");
+        }
+
+        // EJERCICIO 2
+        /* Vamos a seleccionar al formulario y le vamos a añadir el evento submit para asegurarnos de que la función se ejecuta.
+        */
+        const formulario = document.getElementById("discoForm").addEventListener("submit", validar);
+        
+        function validar() {
+            // Tomamos el valor del input para llevarlo al condicional
+            const valor = document.getElementById("nombreDisco").value;
+            /* Aquí comprobamos si el campo está vacío, si es el caso mostraremos un mensaje de alerta y usamos event.preventDefault() 
+            para evitar que se envíe el formulario.
+            */
+            if (valor == "" || valor.length == 0) {
+                alert("El nombre del disco no puede estar vacío");
+                event.preventDefault();
+            }
+        }
+
+        // EJERCICIO 3
+        /* Aquí vamos a hacer uso de querySelectorAll para elegir aquellos input que tienen un atributo type con valor text.
+        */
+        const inputsTexto = document.querySelectorAll('input[type=text]')
+
+        /* Una función para generar un número aleatorio usando el sistema hexadecimal (#------). Simplemente hacemos un for 
+        que selecciona un número random entre 0 y 15 y lo concatena a la variable color, así hasta completar el color.
+        */
+        function generaColorAleatorio() {
+            const letras = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letras[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        /* Como sabemos, querySelectorAll() nos genera un array por lo que es posiblerecorrerlo con un forEach. 
+        Aquí añadiremos un evento input a cada elemento del array y crearemos la función que comprobará si el elemento está vacío 
+        para así dar un color al fondo o no. 
+        */
+        inputsTexto.forEach(input => {
+            input.addEventListener("input", cambiaColor);
+
+            function cambiaColor() {
+                if (input.value.length > 0) {
+                    input.style.backgroundColor = generaColorAleatorio();
+                } else {
+                    input.style.backgroundColor = "white";
+                }
+            }
+        });
+        
+        // EJERCICIO 4
+        /* Para realizar el ejercicio del contador añadí a la plantilla un pequeño párrafo y le asigné el id contador.
+        */
+        const mostrarContador = document.getElementById("contador");
+        /* La lógica es que cada vez que se añada o borre un caracter en un input de texto se vea reflejado en el contador. 
+        Para ello, volvemos a capturar los inputs de texto (la variable se creó en el ejercicio 3) pero esta vez con una función nueva en el evento.
+        */
+        inputsTexto.forEach(input => {
+            input.addEventListener("input", contadorc);    
+        });
+        /* Esta función va a cambiar en tiempo real el contenido de la etiqueta span cuyo id hemos capturado al principio. 
+        Con el forEach añadimos la cantidad de letras que haya en el momento. Finalmente hacemos uso de textContent para modificar 
+        el html directamente y que muestre el valor de la variable contTotal que hemos creado en la función
+        */
+        function contadorc() {
+            let contTotal = 0;
+            inputsTexto.forEach(input => {
+                contTotal += input.value.length;
+            })
+            mostrarContador.textContent = contTotal;
+        }
+    </script>
+</body>
+</html>

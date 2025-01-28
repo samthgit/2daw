@@ -1,0 +1,49 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    margin: 0; 
+    background-color: #f4f4f4; 
+}
+
+.formulario {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    max-width: 500px; 
+    width: 100%; 
+}
+
+
+.flexbuttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type='text'], input[type='email'], input[type='password'] {
+    background-color: #e6e6e6;
+    border: 1px solid gray;
+    height: 25px;
+}
+
+.fs1 > input {
+    width: 98%;
+}
+
+.fs4 > input {
+    width: 98%;
+}
+
+#valpago, #buscar, #reset {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.formBusq {
+    width: 100%;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de pago</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="formulario">
+        <p><strong>FORMULARIO DE PAGO</strong> (Los campos obligatorios se han marcado con *)</p>
+        <form action="#" method="post">
+            <section>
+                <fieldset class="fs1">
+                    <legend>Información de contacto</legend>
+                    <fieldset class="fs2">
+                        <legend>Profesión</legend>
+                        <input type="radio" name="profesion" id="profesor" value="profesor">
+                        <label for="profesor">Profesor</label><br>
+                        <input type="radio" name="profesion" id="estudiante" value="estudiante">
+                        <label for="estudiante">Estudiante</label><br>
+                        <input type="radio" name="profesion" id="otro" value="otro">
+                        <label for="otro">Otro</label><br>
+                    </fieldset>
+                    <br>
+                    <fieldset class="fs3">
+                        <legend>Tratamiento</legend>
+                        <input type="radio" name="tratamiento" id="srsra" value="srsra">
+                        <label for="srsra">Sr/Sra</label><br>
+                        <input type="radio" name="tratamiento" id="drdra" value="drdra">
+                        <label for="drdra">Dr/Dra</label><br>
+                        <input type="radio" name="tratamiento" id="otro" value="otro">
+                        <label for="otro">Otro</label><br>
+                    </fieldset><br>
+                    <label for="nombre">Nombre: *</label><br>
+                    <input type="text" name="nombre" id="nombre"><br>
+                    <label for="correo">Correo: *</label><br>
+                    <input type="email" name="correo" id="correo"><br>
+                    <label for="tlf">Número de teléfono: *</label><br>
+                    <input type="text" name="tlf" id="tlf"><br>
+                    <label for="contrasena">Contraseña: *</label><br>
+                    <input type="password" name="contrasena" id="contrasena"><br>
+               </fieldset>
+            </section>
+            <section>
+                <fieldset class="fs4">
+                    <legend>Información de pago</legend>
+                    <label for="tipotarj">Tipo de tarjeta:</label>
+                    <select name="tipotarj" id="tipotarj"> 
+                        <option value="visa">Visa</option>
+                    </select><br><br>
+                    <label for="numtarj">Número de tarjeta: *</label><br>
+                    <input type="text" name="numtarj" id="numtarj"><br>
+                    <label for="fechacad">Fecha de caducidad: *</label><br>
+                    <input type="date" name="fechacad" id="fechacad"><br><br>
+                    <label for="cuentapp">Cuenta de paypal: *</label><br>
+                    <input type="text" name="cuentapp" id="cuentapp"><br><br>
+                    <label for="metpago">Método de pago preferido: </label>
+                    <select name="metpago" id="metpago">
+                        <option>Tarjeta de crédito</option>
+                        <option>PayPal</option>
+                    </select><br>
+                </fieldset>
+            </section>
+            <br>
+            <input type="submit" id="valpago" value="VALIDAR EL PAGO">
+        </form>
+    </div>
+
+</body>
+</html>

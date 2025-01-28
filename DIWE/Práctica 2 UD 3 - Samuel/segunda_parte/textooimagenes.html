@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda de texto/imágenes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="formulario">
+        <p><strong>BÚSQUEDA DE TEXTO</strong></p>
+        <form action="https://google.com/search" method="GET">
+            <label>Google:<br>
+                <input class="formBusq" type="text" name="q" required>
+            </label><br>
+            <label>Buscar imágenes
+                <input type="checkbox" name="tbm" value="isch">
+            </label>
+            <input type="submit" id="buscar" value="BUSCAR">
+        </form>
+        <br>
+        <form action="https://search.givewater.com/serp" method="GET">
+            <label>giveWater:<br>
+                <input class="formBusq" type="text" name="q" required>
+            </label><br>
+            <label>Buscar imágenes
+                <input type="checkbox" name="qc" value="images">
+            </label>
+            <input type="submit" id="buscar" value="BUSCAR">
+        </form>
+    </div>
+</body>
+</html>
