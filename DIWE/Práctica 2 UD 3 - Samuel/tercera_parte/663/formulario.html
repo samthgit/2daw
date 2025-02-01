@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="formulario">
+    	<h3>6.6.3.1 Formulario de contacto</h3>
+		<form class="f1" action="contactar.php" method="get">
+        	<div class="form-group">
+        		<label for="nombre">Nombre: </label>
+        		<input type="text" name="nombre" id="nombre">
+   			</div>
+    		<div class="form-group">
+        		<label for="correo">Correo: </label>
+        		<input type="email" name="correo" id="correo">
+    		</div>
+    		<div class="form-group">
+        		<label for="mensaje">Mensaje: </label>
+        		<textarea name="mensaje" id="mensaje" rows="4"></textarea>
+    		</div>
+    		<div class="form-group">
+        		<input type="submit" id="env" value="ENVIAR EL MENSAJE">
+    		</div>
+        </form>
+    </div>
+    <div class="formulario">
+    	<h3>6.6.3.3 Formulario para saludar</h3>
+		<form class="f1" action="saludar.php" method="get">
+        	<div class="form-group">
+        		<label for="saludo">¿Qué quieres decir para saludar?: </label>
+        		<input type="text" name="saludo" id="saludo" placeholder="Hola" required>
+   			</div>
+    		<div class="form-group">
+        		<label for="persona">¿A quién se lo quieres decir?: </label>
+        		<textarea name="persona" id="persona" rows="4" placeholder="Mamá"></textarea>
+    		</div>
+    		<div class="form-group">
+        		<input type="submit" id="env" value="ENVIAR EL MENSAJE">
+    		</div>
+        </form>
+    </div>
+</body>
+</html>

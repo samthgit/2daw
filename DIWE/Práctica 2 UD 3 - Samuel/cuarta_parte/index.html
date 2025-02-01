@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- etiqueta #6 <form> -->
+       <form name="registroForm" action="procesar.php" method="post" enctype="multipart/form-data">
+        <!-- etiquetas #2 <fieldset> <legend> <label> -->
+            <fieldset>
+                <legend>Registro</legend>
+                <label for="nombre">Nombre: <span class="obligatorio">*</span></label>
+                <!-- etiqueta #10 <input type="text"> -->
+                <input type="text" id="nombre" name="nombre" required>
+                <label for="apellidos">Apellidos: <span class="obligatorio">*</span></label>
+                <input type="text" id="apellidos" name="apellidos" required>
+                <label for="email">Email:</label>
+                <!-- etiqueta #10 <input type="email> -->
+                <input type="email" id="email" name="email" required>
+                <label for="telefono">Teléfono: <span class="obligatorio">*</span></label>
+                <!-- etiqueta #10 <input type="tel"> -->
+                <input type="tel" id="telefono" name="telefono" required>
+                <label for="password">Contraseña: <span class="obligatorio">*</span></label>
+                <!-- etiqueta #10 <input type="password"> -->
+                <!-- etiqueta #7 <meter> -->
+                <input type="password" id="password" name="password" required>
+                <div class="passwordMedidor">
+                    <meter min="0" max="8" value="0" low="4" high="7" optimum="8" hidden></meter>
+                    <span id="medidor" hidden></span>
+                </div>
+                <label>Progreso: </label>
+                <!-- etiqueta #8 <progress> -->
+                <progress max="5" value="0"></progress>
+            </fieldset>
+            <fieldset>
+                <legend>Información adicional</legend>
+                <label for="edad">Edad:</label>
+                <!-- etiqueta #9 input type number -->
+                <input type="number" id="edad" name="edad">
+                <label for="sexo">Sexo:</label>
+                <!-- etiqueta #12 <input type="radio"> -->
+                <div class="opciones">
+                    <label>
+                        <input type="radio" name="sexo" id="sexo_hombre" value="hombre">Hombre
+                    </label>
+                    <label>
+                        <input type="radio" name="sexo" id="sexo_mujer" value="mujer">Mujer
+                    </label>
+                </div>
+                <label for="pais">País:</label>
+                <input type="text" list="paises" name="pais" id="pais" placeholder="Selecciona tu país">
+                <!-- etiqueta #5 <datalist> -->
+                <datalist id="paises">
+                    <option value="España"></option>
+                    <option value="Francia"></option>
+                    <option value="Italia"></option>
+                    <option value="Alemania"></option>
+                    <option value="Portugal"></option>
+                </datalist>
+                <label for="hobbies">Hobbies:</label>
+                <!-- etiqueta #12 <input type="checkbox"> -->
+                <div class="opciones">
+                    <label>
+                        <input type="checkbox" name="hobbies[]" value="deporte">Deporte
+                    </label>
+                    <label>
+                        <input type="checkbox" name="hobbies[]" value="lectura">Lectura
+                    </label>
+                    <label>
+                        <input type="checkbox" name="hobbies[]" value="cine">Cine
+                    </label>
+                    <label>
+                        <input type="checkbox" name="hobbies[]" value="viajes">Viajes
+                    </label>
+                    <label>
+                        <input type="checkbox" name="hobbies[]" value="tecnología">Tecnología
+                    </label>
+                </div>
+                <label for="nacimiento">Fecha de nacimiento: </label>
+                <!-- etiqueta #14 <input type="date"> -->
+                <input type="date" name="nacimiento" id="nacimiento">
+                <label for="foto">Foto de perfil:</label>
+                <!-- etiqueta #15 <input type="file"> -->
+                <input type="file" accept="image/*" name="foto" id="foto">
+                <label for="color">Color favorito:</label>
+                <!-- etiqueta #11 <select> <optgroup> <option> -->
+                <select name="color" id="color" multiple>
+                    <optgroup label="Colores primarios">
+                        <option value="rojo">Rojo</option>
+                        <option value="Azul">Amarillo</option>
+                        <option value="azul">Azul</option>
+                    </optgroup>
+                    <optgroup label="Colores secundarios">
+                        <option value="naranja">Naranja</option>
+                        <option value="verde">Verde</option>
+                        <option value="violeta">Violeta</option>
+                    </optgroup>
+                </select>
+                <label for="colorFondo">Selecciona un color de fondo: </label>
+                <!-- etiqueta #13 <input type="color"> -->
+                <input type="color" name="colorFondo" id="colorFondo">
+                <label for="comentarios">Comentarios:</label>
+                <!-- etiqueta #10 <textarea> -->
+                <textarea name="comentarios" id="comentarios" cols="30" rows="5" placeholder="Escribe aquí tus comentarios"></textarea>
+                <label for="valoracion">Valoración: <span id="valoracionValue">5</span></label>
+                <!-- etiqueta #9 input type range -->    
+                <input type="range" name="valoracion" id="valoracion" min="0" max="10" step="1">
+            </fieldset>
+            <div class="botones">
+                <!-- Etiqueta #3 input type submit -->
+                <input type="submit" value="Enviar">
+                <!-- Etiqueta #4 button type reset -->
+                <button type="reset">Restablecer</button>
+            </div>
+       </form> 
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

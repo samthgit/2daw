@@ -1,0 +1,76 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    width: 40%;
+    border-radius: 0.5em;
+    margin: 0 auto;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+form {
+    width: 100%;
+}
+fieldset {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5em;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+fieldset  * {
+    margin-bottom: 10px;
+}
+
+.obligatorio {
+    color: rgb(203, 33, 33);
+}
+
+.opciones {
+    display: flex;
+    justify-content: start;
+    margin-bottom: 0;
+}
+
+.opciones label {
+    margin-right: 10px;
+}	
+
+.botones {
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type="submit"], button {
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 0.5em;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+}
+
+button {
+    background-color: #6c757d;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+button:hover {
+    background-color: #5a6268;
+}

@@ -1,0 +1,55 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    margin: 0; 
+    background-color: #f4f4f4;
+    flex-wrap: wrap;
+}
+
+.formulario {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 20px;
+    margin: 10px;
+    max-width: 500px; 
+    width: 100%; 
+}
+
+.f1 {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.f1 .form-group {
+	display: flex;
+	flex-direction: column;	
+}
+
+.f1 label {
+	margin-bottom: 5px;
+}
+
+input[type='text'], input[type='email'], input[type='password'] {
+    background-color: #eeeeee;
+    border: 1px solid gray;
+    height: 25px;
+}
+
+
+#env {
+    align-self: flex-start;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.formBusq {
+    width: 100%;
+}
