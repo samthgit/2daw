@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+h1 {
+    font-style: italic;
+    font-size: 2.5em;
+    color: #003c7b;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.contenedor {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 10px;
+    margin: 0 auto;
+    width: 95%;
+    border: 1px solid #aaa;
+    border-radius: 0.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding-bottom: 10px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 10px;
+    margin: 10px;
+}
+
+.menu h4 {
+    margin: 0;
+    text-align: center;
+}
+
+.menu h4:nth-of-type(2) {
+    margin-top: 10px;
+}
+
+.menu button {
+    height: 10%;
+}
+
+.menu button:nth-of-type(even) {
+    background-color: #003c7b;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.menu button:nth-of-type(odd) {
+    background-color: #1c82d6;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.datos.contenido {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    border-radius: 0.5em;
+}
+
+.datos.contenido h2 {
+    margin-bottom: 10px;
+}
+
+.datos.contenido div {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.datos.contenido div:nth-child(even) {
+    background-color: #eef6ff;
+    padding: 10px;
+}
+
+.datos.contenido div:nth-child(odd) {
+    background-color: #d0eaff;
+    padding: 10px;
+}
+
+.datos.contenido div:nth-child(1) {
+    border-radius: 0 0.5em 0 0;
+}
+
+.datos.contenido div:nth-child(6) {
+    border-radius: 0 0 0.5em 0;
+}
+
+.datos.registro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+    border-radius: 0.5em;
+}
+
+.datos.registro h2 {
+    margin-bottom: 10px;
+}
+
+.datos.registro div:nth-child(2) {
+    background-color: #d0eaff;
+    padding: 10px;
+}
+
+.datos.eliminacion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+    border-radius: 0.5em;
+}
+
+.datos.eliminacion h2 {
+    margin-bottom: 10px;
+}
+
+.datos.eliminacion div:nth-child(2) {
+    background-color: #ff9c86;
+    padding: 10px;
+}

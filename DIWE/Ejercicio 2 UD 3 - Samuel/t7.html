@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla 7</title>
+    <style>
+        th, td {
+            border: 1px solid #888;
+            padding: 10px;
+            }
+            tfoot td {
+            background: #666;
+            color: #eee;
+            border: 0;
+            }
+            table {
+            caption-side: bottom;
+            }
+            tr.title th {
+            background: #000;
+            color: #fff;
+            border: 0;
+        }
+        .first { background: #ff9999; 
+        }
+        .second { background: #ff5555; 
+        }
+        .third { background: #ff2222; 
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Calificaciones de los alumnos</caption>
+        <colgroup>
+            <col></col>
+            <col class="first"></col>
+            <col class="second"></col>
+            <col class="third"></col>
+        </colgroup>
+        <tfoot>
+            <tr>
+                <td>Ref.</td>
+                <td>5.0</td>
+                <td>5.0</td>
+                <td>5.0</td>
+            </tr>
+        </tfoot>
+        <thead>
+            <tr class="title">
+                <th rowspan="2">Estudiante</th>
+                <th colspan="3">Calificación</th>
+            </tr>
+            <tr>
+                <th>1o ev.</th>
+                <th>2o ev.</th>
+                <th>3o ev.</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Bernardo</td>
+                <td>5.7</td>
+                <td>8.3</td>
+                <td>8.9</td>
+            </tr>
+            <tr>
+                <td>Remigio</td>
+                <td>4.7</td>
+                <td>4.7</td>
+                <td>1.3</td>
+            </tr>
+            <tr>
+                <td>Ana</td>
+                <td>9.7</td>
+                <td>9.7</td>
+                <td>9.9</td>
+            </tr>
+        </tbody>
+        <!-- ... -->
+        </table>
+</body>
+</html>

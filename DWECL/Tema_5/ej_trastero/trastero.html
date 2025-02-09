@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Trastero</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Sistema de Gestión de Trastero</h1>
+    <!-- contenedor 'sidebar' que contiene los botones del sistema -->
+    <div class="contenedor">
+        <div class="menu">
+            <h4>Usuario</h4>
+            <button id="anadirUsuario">Añadir Usuario</button>
+            <button id="registrarCaja">Registrar Caja</button>
+            <button id="eliminarCaja">Eliminar Caja</button>
+            <button id="listarUsuarios">Listar Usuarios</button>
+            <h4>Trastero</h4>
+            <button id="ingresarCaja">Ingresar Caja</button>
+            <button id="retirarCaja">Retirar Caja</button>
+            <button id="consultarCaja">Consultar Caja</button>
+            <button id="consultarEstado">Consultar Estado del Trastero</button>
+        </div>
+        <!-- contenedor 'datos' que contiene los datos de los usuarios y las cajas. Se deja vacío para que sirva de esqueleto 
+        y poder rellenarlo dinámicamente con JS más adelante -->
+        <div class="datos">
+
+        </div>
+    </div>
+    <script src="logica_trastero.js"></script>
+</body>
+</html>

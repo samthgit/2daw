@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Tienda de Discos</title>
+    <link rel="stylesheet" href="tiendaDiscosSohoStyle.css">
+</head>
+
+<body>
+
+    <h1>Tienda de Discos</h1>
+
+    <!-- 📌 Botones para todas las funcionalidades -->
+    <div class="opciones">
+        <button id="numDiscosBtn">📀 Número de Discos</button>
+        <button id="listarDiscosBtn">📜 Mostrar Listado de Discos</button>
+        <button id="borrarDiscoBtn">🗑️ Eliminar Disco</button>
+    </div>
+
+    <!-- 📌 Formulario para agregar un disco (único formulario) -->
+    <div class="contenedor-formularios">
+        <form id="agregarDiscoForm">
+            <h2>Añadir un Disco</h2>
+        
+            <!-- 📌 Primera fila con "Nombre del Disco" y "Grupo/Cantante" -->
+            <div class="fila">
+                <div>
+                    <label for="nombre">Nombre del Disco:</label>
+                    <input type="text" id="nombre" required>
+                </div>
+        
+                <div>
+                    <label for="grupo">Grupo/Cantante:</label>
+                    <input type="text" id="grupo" required>
+                </div>
+            </div>
+        
+            <!-- 📌 Segunda fila con "Año de Publicación", "Tipo de Música" y "Número de Estantería" -->
+            <div class="fila-tres">
+                <div>
+                    <label for="anio">Año de Publicación:</label>
+                    <input type="number" id="anio" min="1920" max="2025" required>
+                </div>
+        
+                <div>
+                    <label for="tipo">Tipo de Música:</label>
+                    <select id="tipo">
+                        <option value="rock">Rock</option>
+                        <option value="pop">Pop</option>
+                        <option value="punk">Punk</option>
+                        <option value="indie">Indie</option>
+                    </select>
+                </div>
+        
+                <div>
+                    <label for="estanteria">Número de Estantería:</label>
+                    <input type="number" id="estanteria" min="1" max="20" required>
+                </div>
+            </div>
+        
+            <button type="submit">➕ Añadir Disco</button>
+        </form>
+
+    </div>
+
+    <h2>📜 Lista de Discos</h2>
+    <ul id="listaDiscos"></ul>
+
+    <div id="resultado"></div>
+
+    <script src="disco.js"></script>
+    <script src="tiendaDiscos.js"></script>
+    <script src="tiendaDiscosDOM_Eventos.js"></script>
+
+</body>
+
+</html>

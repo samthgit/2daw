@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Trastero</title>
+</head>
+
+<body>
+
+    <h1>Sistema de Gestión de Trastero</h1>
+
+    <button id="ingresarCajaBtn">Ingresar Caja</button>
+    <button id="retirarCajaBtn">Retirar Caja</button>
+    <button id="consultarCajaBtn">Consultar Caja</button>
+    <button id="consultarTrasteroBtn">Consultar Estado del Trastero</button>
+    <button id="modificarCapacidadBtn">Modificar Capacidad Máxima</button>
+    <button id="modificarTarifaBtn">Modificar Tarifa</button>
+    <button id="financieroBtn">Financiero</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        /*
+           Sistema de Gestión de Trastero - JavaScript
+          
+        */
+
+        // Clase Caja
+        class Caja {
+            constructor(idCaja, dniUsuario, peso) {
+                this.idCaja = idCaja;
+                this.dniUsuario = dniUsuario;
+                this.peso = peso;
+                this.horaEntrada = new Date();
+                this.horaSalida = null;
+                this.facturado = 0; // Total facturado tras retirada
+            }
+        }
+
+        //  Clase Trastero
+        class Trastero {
+            constructor(capacidadMaxima, tarifaBasePorHora, tarifaPorKg) {
+                this.cajasEnTrastero = new Array(capacidadMaxima).fill(null);
+                this.capacidadMaxima = capacidadMaxima;
+                this.tarifaBasePorHora = tarifaBasePorHora;
+                this.tarifaPorKg = tarifaPorKg;
+                this.totalFacturado = 0;
+            }
+
+            //  Ingresar una caja
+            ingresarCaja() {
+                let dni = prompt("Introduce tu DNI:");
+                let idCaja = prompt("Introduce el ID de la caja:");
+                let peso = parseFloat(prompt("Introduce el peso de la caja (kg):"));
+
+                // Verificar si el ID ya existe
+                for (let i = 0; i < this.cajasEnTrastero.length; i++) {
+                    if (this.cajasEnTrastero[i] && this.cajasEnTrastero[i].idCaja === idCaja) {
+                        document.getElementById("resultado").innerHTML = `<p style="color:red;">⚠️ El ID de la caja ya está en uso.</p>`;
+                        return;
+                    }
+                }
+
+                let nuevaCaja = new Caja(idCaja, dni, peso);
+                let posicionLibre = this.cajasEnTrastero.indexOf(null);
+
+                if (posicionLibre === -1) {
+                    document.getElementById("resultado").innerHTML = `<p style="color:red;">⚠️ No hay espacio en el trastero.</p>`;
+                    return;
+                }
+
+                this.cajasEnTrastero[posicionLibre] = nuevaCaja;
+                document.getElementById("resultado").innerHTML = `<p style="color:blue;">📦 La caja ${idCaja} ha sido almacenada en la posición ${posicionLibre}.</p>`;
+            }
+
+            //  Retirar una caja
+            retirarCaja() {
+                let dni = prompt("Introduce tu DNI:");
+                let idCaja = prompt("Introduce el ID de la caja:");
+
+                for (let i = 0; i < this.cajasEnTrastero.length; i++) {
+                    let caja = this.cajasEnTrastero[i];
+                    if (caja && caja.idCaja === idCaja && caja.dniUsuario === dni) {
+                        caja.horaSalida = new Date();
+                        let horas = (caja.horaSalida - caja.horaEntrada) / (1000 * 60 * 60);
+                        let totalPagar = (this.tarifaBasePorHora + caja.peso * this.tarifaPorKg) * horas;
+
+                        caja.facturado = totalPagar;
+                        this.totalFacturado += totalPagar;
+                        this.cajasEnTrastero[i] = null; // Dejar espacio vacío
+
+                        document.getElementById("resultado").innerHTML = `<p style="color:green;">✅ Caja ${idCaja} retirada. Total a pagar: $${totalPagar.toFixed(2)}</p>`;
+                        return;
+                    }
+                }
+
+                document.getElementById("resultado").innerHTML = `<p style="color:red;">⚠️ Caja no encontrada o no pertenece a este usuario.</p>`;
+            }
+
+            //  Consultar Estado del Trastero
+            consultarTrastero() {
+                let resultadoDiv = document.getElementById("resultado");
+                resultadoDiv.innerHTML = "<h2>📦 Estado del Trastero</h2>";
+
+                for (let i = 0; i < this.cajasEnTrastero.length; i++) {
+                    let caja = this.cajasEnTrastero[i];
+                    if (caja) {
+                        resultadoDiv.innerHTML += `<p>📦 Posición ${i}: Caja ${caja.idCaja} - Peso: ${caja.peso}kg - Usuario: ${caja.dniUsuario}</p>`;
+                    } else {
+                        resultadoDiv.innerHTML += `<p>🔲 Posición ${i}: Vacía</p>`;
+                    }
+                }
+            }
+
+            consultarCaja() {
+                let idCaja = prompt("Introduce el ID de la caja:");
+
+                for (let i = 0; i < this.cajasEnTrastero.length; i++) {
+                    let caja = this.cajasEnTrastero[i];
+                    if (caja && caja.idCaja === idCaja) {
+                        let horas = (new Date() - caja.horaEntrada) / (1000 * 60 * 60);
+                        let facturaPendiente = (this.tarifaBasePorHora + caja.peso * this.tarifaPorKg) * horas;
+
+                        document.getElementById("resultado").innerHTML = `
+              <h2>📦 Información de la Caja</h2>
+              <p><strong>ID:</strong> ${caja.idCaja}</p>
+              <p><strong>Usuario:</strong> ${caja.dniUsuario}</p>
+              <p><strong>Peso:</strong> ${caja.peso}kg</p>
+              <p><strong>Fecha y Hora de Entrada:</strong> ${caja.horaEntrada}</p>
+              <p><strong>Factura actual (si se retirara ahora):</strong> $${facturaPendiente.toFixed(2)}</p>
+            `;
+                        return;
+                    }
+                }
+
+                document.getElementById("resultado").innerHTML = `<p style="color:red;">⚠️ Caja no encontrada.</p>`;
+            }
+
+            //  Finanzas del trastero
+            verFinanciero() {
+                let facturado = this.totalFacturado;
+                let pendienteCobrar = 0;
+
+                for (let i = 0; i < this.cajasEnTrastero.length; i++) {
+                    let caja = this.cajasEnTrastero[i];
+                    if (caja) {
+                        let horas = (new Date() - caja.horaEntrada) / (1000 * 60 * 60);
+                        pendienteCobrar += (this.tarifaBasePorHora + caja.peso * this.tarifaPorKg) * horas;
+                    }
+                }
+
+                let total = facturado + pendienteCobrar;
+
+                document.getElementById("resultado").innerHTML = `
+          <h2>💰 Resumen Financiero</h2>
+          <p><strong>Total Facturado:</strong> $${facturado.toFixed(2)}</p>
+          <p><strong>Total Pendiente de Cobrar:</strong> $${pendienteCobrar.toFixed(2)}</p>
+          <p><strong>Total Acumulado:</strong> $${total.toFixed(2)}</p>
+        `;
+            }
+
+
+            // Modificar Capacidad Máxima
+            modificarCapacidadMaxima() {
+                let nuevaCapacidad = parseInt(prompt("Introduce la nueva capacidad máxima del trastero:"));
+
+                if (isNaN(nuevaCapacidad) || nuevaCapacidad <= 0) {
+                    document.getElementById("resultado").innerHTML = `<p style="color:red;">⚠️ Introduce un valor válido para la capacidad.</p>`;
+                    return;
+                }
+
+               
+                if (nuevaCapacidad <= this.capacidadMaxima) {
+                    document.getElementById("resultado").innerHTML = `<p style="color:red;">⚠️ No se puede reducir o igualar la capacidad actual. Sólo aumentar.</p>`;
+                    return;
+                }else{
+                    let nuevasPosiciones = nuevaCapacidad - this.capacidadMaxima;
+                    for(let i=0;i<nuevasPosiciones;i++){
+                        this.cajasEnTrastero.push(null);
+                    }
+                    this.capacidadMaxima = nuevaCapacidad;
+                    document.getElementById("resultado").innerHTML = `<p style="color:blue;">✅ Capacidad máxima actualizada a ${nuevaCapacidad} espacios.</p>`;
+                }
+
+            
+                
+            }
+
+            //  Modificar Tarifas
+            modificarTarifa() {
+                let nuevaTarifaHora = parseFloat(prompt("Introduce la nueva tarifa base por hora:"));
+                let nuevaTarifaKg = parseFloat(prompt("Introduce la nueva tarifa por kilogramo:"));
+
+                if (isNaN(nuevaTarifaHora) || isNaN(nuevaTarifaKg) || nuevaTarifaHora < 0 || nuevaTarifaKg < 0) {
+                    document.getElementById("resultado").innerHTML = `<p style="color:red;">⚠️ Introduce valores válidos para las tarifas.</p>`;
+                    return;
+                }
+
+                this.tarifaBasePorHora = nuevaTarifaHora;
+                this.tarifaPorKg = nuevaTarifaKg;
+                document.getElementById("resultado").innerHTML = `<p style="color:blue;">✅ Tarifas actualizadas: $${nuevaTarifaHora}/hora y $${nuevaTarifaKg}/kg.</p>`;
+            }
+
+        }
+
+        // Instancia del trastero
+        let trastero = new Trastero(5, 2, 0.5);
+
+        // Eventos de botones
+        document.getElementById("ingresarCajaBtn").addEventListener("click", () => trastero.ingresarCaja());
+        document.getElementById("retirarCajaBtn").addEventListener("click", () => trastero.retirarCaja());
+        document.getElementById("consultarCajaBtn").addEventListener("click", () => trastero.consultarCaja());
+        document.getElementById("consultarTrasteroBtn").addEventListener("click", () => trastero.consultarTrastero());
+        document.getElementById("financieroBtn").addEventListener("click", () => trastero.verFinanciero());
+        document.getElementById("modificarCapacidadBtn").addEventListener("click", () => trastero.modificarCapacidadMaxima());
+        document.getElementById("modificarTarifaBtn").addEventListener("click", () => trastero.modificarTarifa());
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 Tema 5</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 id="titulo">I.E.S. Kursaal Centro Tecnológico</h1>
+    <div class="contenedor">
+        <div class="div-formulario">
+            <!-- Se usa el atributo novalidate para llevar a cabo toda la lógica
+            de validación direcamente con JavaScript  -->
+            <form class="formulario" name="registroForm" id="formulario" action="#" method="get" novalidate>
+                <fieldset>
+                    <legend>Datos</legend>
+                    <label for="nombre">Nombre: </label>
+                    <input type="text" id="nombre" name="nombre" required>
+                    <label for="correo">Correo electrónico: </label>
+                    <input type="email" id="correo" name="correo" required>
+                    <label for="opciones-matricula">Curso a matricularse: </label>
+                        <select id="opciones-matricula">
+                            <option selected disabled>Seleccione una opción:</option>
+                            <option value="Desarrollo Web">Desarrollo Web</option>
+                            <option value="Administración de Sistemas">Administración de Sistemas</option>
+                            <option value="Ciberseguridad">Ciberseguridad</option>
+                        </select>
+                    <label for="contrasena">Contraseña: </label>
+                    <input type="password" id="contrasena" name="contrasena" required>
+                </fieldset>
+                <label for="comentarios">Comentarios: </label>
+                <textarea name="comentarios" id="comentarios"></textarea>
+                <div>
+                    <input class="bot-submit" type="submit" id="bot-submit" value="Enviar">
+                    <input class="bot-reset" type="reset" id="bot-reset" value="Limpiar">
+                </div>
+            </form>
+        </div>
+        <div class="div-info" id="div-info">
+            <img src="img/img1.jpg" alt="fotografía de un edificio" width="300px" height="180px" id="imagen">
+            <h2>Información de nuestros cursos</h2>
+            <ul>
+                <li>Desarrollo Web Entorno Cliente</li>
+                <li>Sistemas Informáticos</li>
+                <li>Entornos de Desarrollo</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -5,22 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formularios</title>
     <link rel="stylesheet" href="styles.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="formulario">
+		<!-- Formulario modificado para adaptarse a las exigencias del nuevo enunciado
+		Se ha añadido un campo <input readonly>, además de los atributos pattern y title -->
     	<h3>6.6.3.1 Formulario de contacto</h3>
 		<form class="f1" action="contactar.php" method="get">
         	<div class="form-group">
         		<label for="nombre">Nombre: </label>
-        		<input type="text" name="nombre" id="nombre">
+        		<input type="text" name="nombre" id="nombre" pattern="[A-Za-z0-9]+" title="Solo se pueden usar letras y números." required>
    			</div>
     		<div class="form-group">
         		<label for="correo">Correo: </label>
-        		<input type="email" name="correo" id="correo">
+        		<input type="email" name="correo" id="correo" required>
+    		</div>
+			<div class="form-group">
+        		<label for="micorreo">Mi correo de contacto: </label>
+        		<input type="text" name="micorreo" id="micorreo" value="sam.example@gmail.com" readonly>
     		</div>
     		<div class="form-group">
         		<label for="mensaje">Mensaje: </label>
-        		<textarea name="mensaje" id="mensaje" rows="4"></textarea>
+        		<textarea name="mensaje" id="mensaje" rows="4" required></textarea>
+    		</div>
+			<div class="form-group">
+        		<label for="satisfaccion">Satisfacción: <span id="medidor">-</span> </label>
+        		<input type="range" name="satisfaccion" id="satisfaccion" min="0" max="10" step="1" value="5">
     		</div>
     		<div class="form-group">
         		<input type="submit" id="env" value="ENVIAR EL MENSAJE">
@@ -28,11 +39,17 @@
         </form>
     </div>
     <div class="formulario">
+		<!-- Formulario modificado para adaptarse a las exigencias del nuevo enunciado
+		Se ha añadido un campo <input type="date"> e <input disabled> -->
     	<h3>6.6.3.3 Formulario para saludar</h3>
 		<form class="f1" action="saludar.php" method="get">
         	<div class="form-group">
         		<label for="saludo">¿Qué quieres decir para saludar?: </label>
-        		<input type="text" name="saludo" id="saludo" placeholder="Hola" required>
+        		<input type="text" name="saludo" id="saludo" placeholder="Hola" minlength="4" maxlength="25" pattern="[A-Za-z]+" required>
+   			</div>
+			   <div class="form-group">
+        		<label for="fecha">Fecha: </label>
+        		<input type="date" name="fecha" id="fecha" min="2024-01-01" max="2026-01-01" required>
    			</div>
     		<div class="form-group">
         		<label for="persona">¿A quién se lo quieres decir?: </label>
@@ -41,7 +58,15 @@
     		<div class="form-group">
         		<input type="submit" id="env" value="ENVIAR EL MENSAJE">
     		</div>
+			<div class="form-group">
+        		<input type="reset" id="res" value="Reset" disabled>
+    		</div>
         </form>
     </div>
+	<script>
+		document.getElementById("satisfaccion").addEventListener("input", function() {
+			document.getElementById("medidor").textContent = this.value;
+		});
+	</script>
 </body>
 </html>
