@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorando la Interfaz Node en el DOM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid black;
+            min-height: 50px;
+        }
+
+        .resaltado {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Exploración de la Interfaz Node</h1>
+
+    <div class="container">
+        <h2 id="titulo">Ejemplo de Nodos en el DOM</h2>
+
+        <!-- Comentario en HTML -->
+        <!-- Este es un comentario de ejemplo -->
+
+        <div id="contenedor">
+            <p id="parrafo">Este es un párrafo con <span>texto en negrita</span>.</p>
+            <ul id="lista">
+                <li>Elemento 1</li>
+                <li>Elemento 2</li>
+                <li>Elemento 3</li>
+            </ul>
+            <a href="#" id="enlace">Enlace de prueba</a>
+        </div>
+        
+
+        <button id="btnListarHijos">Listar Nodos Hijos</button>
+        <button id="btnPrimerNodo">Mostrar Primer Nodo</button>
+        <button id="btnUltimoNodo">Mostrar Último Nodo</button>
+        <button id="btnMostrarContenido">Mostrar Contenido de Texto</button>
+        <button id="btnCambiarTexto">Cambiar Contenido de Texto</button>
+        <button id="btnHermanoAnterior">Mostrar Hermano Anterior</button>
+        <button id="btnHermanoSiguiente">Mostrar Hermano Siguiente</button>
+        <button id="btnAgregarNodo">Agregar Nuevo Nodo</button>
+        <button id="btnEliminarUltimoNodo">Eliminar Último Nodo</button>
+        <button id="btnMostrarAtributos">Mostrar Atributos del Enlace</button>
+        <button id="btnModificarAtributo">Modificar Atributo del Enlace</button>
+        <button id="btnMostrarComentarios">Mostrar Comentarios</button>
+
+        <div id="resultado"><strong>Resultados:</strong></div>
+    </div>
+
+    <script>
+        let contenedor = document.getElementById("contenedor");
+        let resultado = document.getElementById("resultado");
+
+        document.getElementById("btnListarHijos").addEventListener("click", listarHijos);
+        document.getElementById("btnPrimerNodo").addEventListener("click", primerNodo);
+        document.getElementById("btnUltimoNodo").addEventListener("click", ultimoNodo);
+        document.getElementById("btnMostrarContenido").addEventListener("click", mostrarContenido);
+        document.getElementById("btnCambiarTexto").addEventListener("click", cambiarTexto);
+        document.getElementById("btnHermanoAnterior").addEventListener("click", mostrarHermanoAnterior);
+        document.getElementById("btnHermanoSiguiente").addEventListener("click", mostrarHermanoSiguiente);
+        document.getElementById("btnAgregarNodo").addEventListener("click", agregarNodo);
+        document.getElementById("btnEliminarUltimoNodo").addEventListener("click", eliminarUltimoNodo);
+        document.getElementById("btnMostrarAtributos").addEventListener("click", mostrarAtributos);
+        document.getElementById("btnModificarAtributo").addEventListener("click", modificarAtributo);
+        document.getElementById("btnMostrarComentarios").addEventListener("click", mostrarComentarios);
+
+        console.log(document.firstChild);        
+              
+        function listarHijos() {
+            let hijos = contenedor.childNodes;
+            let lista = "";
+              hijos.forEach(node => {
+                let contenidoTexto = node.nodeType === 3 ? node.textContent.trim() : node.textContent;
+
+                lista += `${node.nodeName} (Tipo: ${node.nodeType}) - Contenido: "${contenidoTexto}"<br>`;
+                console.log(`Nodo: ${node.nodeName} (Tipo: ${node.nodeType}) - Contenido: "${contenidoTexto}"`);
+            });
+            resultado.innerHTML = lista;
+            console.log(hijos);
+        }
+
+        function primerNodo() {
+                let primer = contenedor.firstChild;
+                resultado.innerHTML = `Primer nodo: ${primer.nodeName} (Tipo: ${primer.nodeType})`;
+                console.log(primer);
+        }
+
+        function ultimoNodo() {
+                let ultimo = contenedor.lastChild;
+                resultado.innerHTML = `Último nodo: ${ultimo.nodeName} (Tipo: ${ultimo.nodeType})`;
+                console.log(ultimo);
+        }
+
+        function mostrarContenido() {
+                let texto = document.getElementById("parrafo").textContent;
+                resultado.innerHTML = `Contenido de Texto: ${texto}`;
+                console.log(texto);
+        }
+
+        function cambiarTexto() {
+                document.getElementById("parrafo").textContent = "Este texto ha sido cambiado dinámicamente.";
+                resultado.innerHTML = "Se ha cambiado el contenido del párrafo.";
+        }
+
+        function mostrarHermanoAnterior() {
+                let hermano = document.getElementById("lista").previousSibling;
+                resultado.innerHTML = `Hermano Anterior: ${hermano ? hermano.nodeName : "No hay hermano anterior"}`;
+                console.log(hermano);
+        }
+
+        function mostrarHermanoSiguiente() {
+                let hermano = document.getElementById("lista").nextSibling;
+                resultado.innerHTML = `Hermano Siguiente: ${hermano ? hermano.nodeName : "No hay hermano siguiente"}`;
+                console.log(hermano);
+        }
+
+        function agregarNodo() {
+                let nuevoElemento = document.createElement("p");
+                nuevoElemento.textContent = "Este es un nuevo párrafo añadido dinámicamente.";
+                contenedor.appendChild(nuevoElemento);
+                resultado.innerHTML = "Se ha añadido un nuevo nodo.";
+        }
+
+        function eliminarUltimoNodo() {
+            if (contenedor.lastChild) {
+                    contenedor.removeChild(contenedor.lastChild);
+                resultado.innerHTML = "Se ha eliminado el último nodo.";
+            } else {
+                    resultado.innerHTML = "No hay nodos para eliminar.";
+            }
+        }
+
+        function mostrarAtributos() {
+                let enlace = document.getElementById("enlace");
+                let atributos = "";
+                for (let attr of enlace.attributes) {
+                    atributos += `${attr.name}: ${attr.value}<br>`;
+            }
+                resultado.innerHTML = "Atributos del enlace:<br>" + atributos;
+                console.log(enlace.attributes);
+        }
+
+            function modificarAtributo() {
+                    let enlace = document.getElementById("enlace");
+                    enlace.setAttribute("href", "https://www.google.com");
+                    enlace.textContent = "Ir a Google";
+                    resultado.innerHTML = "Se ha modificado el atributo href del enlace.";
+        }
+
+            function mostrarComentarios() {
+                let comentarios = [];
+                let nodoActual = contenedor.firstChild;
+                while (nodoActual) {
+                if (nodoActual.nodeType === 8) { // Tipo de nodo para comentarios
+                        comentarios.push(nodoActual.textContent.trim());
+                }
+                    nodoActual = nodoActual.nextSibling;
+            }
+                    resultado.innerHTML = comentarios.length ? "Comentarios en el documento: <br>" + comentarios.join("<br>") : "No hay comentarios.";
+        }
+        
+    </script>
+
+</body>
+
+</html>

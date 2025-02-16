@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Contenedores en un Puerto Marítimo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Gestión de Contenedores en un Puerto Marítimo</h1>
+
+    <div class="container">
+        <form id="formContenedor" novalidate>
+            <input type="number" name="ID_Contenedor" id="idContenedor" placeholder="ID Contenedor" required>
+            <input type="number" name="Peso" id="peso" placeholder="Peso (toneladas)" required>
+            <input type="text" name="Contenido" id="contenido" placeholder="Contenido" required>
+            <select name="Destino" id="destino">
+                <option selected disabled>Elige un destino</option>
+                <option value="Europa">Europa</option>
+                <option value="USA">USA</option>
+                <option value="Oriente">Oriente</option>
+                <option value="Africa">África</option>
+            </select>
+            <button type="submit" class="agregar">Agregar Contenedor</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Peso (Ton)</th>
+                    <th>Contenido</th>
+                    <th>Destino</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody id="tablaContenedores">
+
+            </tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
