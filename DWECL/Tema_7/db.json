@@ -1,0 +1,18 @@
+{
+  "barcos": [
+    {
+      "id": "1",
+      "barco": "Ciudad de Málaga",
+      "empresa": "Transmediterranea",
+      "destino": "Ceuta",
+      "salida": "12:00"
+    },
+    {
+      "id": "2",
+      "barco": "Milano",
+      "empresa": "Balearia",
+      "destino": "Tánger",
+      "salida": "12:30"
+    }
+  ]
+}

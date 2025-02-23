@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Información Personal</legend>
+            <label for="nombre">Nombre: </label>
+            <input type="text" name="nombre" id="nombre" required><br><br>
+            <label for="apellido">Apellido: </label>
+            <input type="text" name="apellido" id="apellido" required><br><br>
+            <label for="nacimiento">Fecha de Nacimiento:</label>
+            <input type="date" name="nacimiento" id="nacimiento" max="2007-02-18" required><br><br>
+            <label for="genero">Género: 
+                <input type="radio" name="genero" id="masculino">
+                <label for="masculino">Masculino</label>
+                <input type="radio" name="genero" id="femenino">
+                <label for="femenino">Femenino</label>
+                <input type="radio" name="genero" id="otro">
+                <label for="otro">Otro</label>
+            </label><br><br>
+            <label for="dni">DNI:</label>
+            <input type="text" name="dni" id="dni" pattern="^[0-9]{8}[A-Za-z0-9]{1}$"><br><br>
+        </fieldset>
+        <fieldset>
+            <legend>Información de Contacto</legend>
+            <label for="email">Dirección de Correo Electrónico: </label>
+            <input type="email" name="email" id="email" required><br><br>
+            <label for="telefono">Teléfono: </label>
+            <input type="tel" name="telefono" id="telefono" pattern="^\+?[0-9]{1,3}?[0-9]{9,10}$" maxlength="13" required><br><br>
+            <label for="direccion">Dirección: </label><br>
+            <textarea name="direccion" id="direccion" required></textarea>
+        </fieldset>
+        <fieldset>
+            <legend>Información de Cuenta</legend>
+            <label for="usuario">Nombre de Usuario: </label>
+            <input type="text" name="usuario" id="usuario" required><br><br>
+            <label for="contrasena">Contraseña: </label>
+            <input type="password" name="contrasena" id="contrasena" pattern="^(?=.*[+\-¡$&])[A-Za-z\d+\-¡$&]{8,}$" required><br><br>
+            <label for="contrasena2">Confirmación de Contraseña: </label>
+            <input type="password" name="contrasena2" id="contrasena2" pattern="^(?=.*[+\-¡$&])[A-Za-z\d+\-¡$&]{8,}$" required>
+        </fieldset>
+        <fieldset>
+            <legend>Preferencias</legend>
+            <label for="colorFavorito">Seleccionar un Color Favorito: </label>
+            <select name="colorFavorito" id="colorFavorito">
+                <option value="rojo">Rojo</option>
+                <option value="azul">Azul</option>
+                <option value="verde">Verde</option>
+                <option value="amarillo">Amarillo</option>
+            </select><br><br>
+            <label for="terminos">Aceptar Términos y Condiciones: </label>
+            <input type="checkbox" name="terminos" id="terminos" required>
+        </fieldset><br>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

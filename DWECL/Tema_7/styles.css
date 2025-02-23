@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: rgb(225, 225, 225);
+}
+
+.menu-datos {
+    display: flex;
+    justify-content: space-around;
+    background-color: #aaaaff;
+    border: 2px solid #7070a6;
+    border-radius: 0.5em;
+    margin: 10px auto;
+    padding: 10px;
+    width: 75%;
+}
+
+.menu-datos .datos, .cont-form-agr .formulario button, .cont-form-act .formulario button, .cont-form-act-parc .formulario button {
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 0.2em;
+    box-shadow: 0 5px 10px rgb(0, 0, 0, 0.1);
+    font-size: 1em;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.menu-datos .datos:hover, .cont-form-agr .formulario button:hover, .cont-form-act .formulario button:hover, .cont-form-act-parc .formulario button:hover {
+    background-color: #ffe8dc;
+}
+
+.menu-datos .datos:active, .cont-form-agr .formulario button:active, .cont-form-act .formulario button:active, .cont-form-act-parc .formulario button:active {
+    background-color: #fbba98;
+}
+
+.cont-form-agr, .cont-form-act, .cont-form-act-parc {
+    display: flex;
+    flex-direction: column;
+    background-color: #aaaaff;
+    border: 2px solid #7070a6;
+    border-radius: 0.5em;
+    margin: 10px auto;
+    padding: 10px;
+    width: 400px;
+    min-width: 300px;
+}
+
+.cont-form-act {
+    background-color: #62b960;
+    border: 2px solid #407b3f;
+}
+
+.cont-form-act-parc {
+    background-color: #dfcf73;
+    border: 2px solid #a69532;
+}
+
+.cont-form-agr .formulario, .cont-form-act .formulario, .cont-form-act-parc .formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+.cont-form-agr .formulario *, .cont-form-act .formulario *, .cont-form-act-parc .formulario * {
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.cont-form-agr .formulario input, .cont-form-act .formulario input, .cont-form-act-parc .formulario input {
+    font-size: 1em;
+    padding: 0 3px;
+}
+
+.botones-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cancelar {
+    background-color: #ff4b4b !important;
+    border: 1px solid #a22929;
+    color: white;
+}
+
+.cont-form-agr .formulario button {
+    width: 80px;
+}
+
+.cont-form-act .formulario button, .cont-form-act-parc .formulario button {
+    width: 100px;
+}
+
+.hidden {
+    display: none;
+}
+
+.cont-tabla {
+    margin: 25px auto;
+    width: 80%;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 0.5em;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgb(0,0,0,0.1);
+    table-layout: fixed;
+    width: 100%;
+}
+
+table th {
+    background-color: #7070a6;
+}
+
+td, th {
+    padding: 10px;
+    text-align: center;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+tbody tr:nth-child(even) {
+    background-color: #c6c6c6;
+}

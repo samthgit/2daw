@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Puerto Marítimo con Axios</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1,
+        h2 {
+            color: #333;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input {
+            margin: 5px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Gestión de Puerto Marítimo</h1>
+    <h2>Barcos</h2>
+    <form id="formBarco">
+        <input type="text" id="nombreBarco" placeholder="Nombre del Barco" required>
+        <input type="text" id="capitanBarco" placeholder="Capitán" required>
+        <input type="text" id="paisOrigen" placeholder="País de Origen" required>
+        <input type="number" id="capacidad" placeholder="Capacidad de Carga (ton)" required>
+        <input type="text" id="tipoBarco" placeholder="Tipo de Barco" required>
+        <input type="number" id="anioConstruccion" placeholder="Año de Construcción" required>
+        <button type="submit">Añadir Barco (POST)</button>
+    </form>
+    <button id="btnGetBarcos">Cargar Barcos (GET)</button>
+    <button id="btnUpdateBarco">Actualizar Barco (PUT)</button>
+    <button id="btnDeleteBarco">Eliminar Barco (DELETE)</button>
+    <table id="tablaBarcos">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Capitán</th>
+                <th>País</th>
+                <th>Capacidad</th>
+                <th>Tipo</th>
+                <th>Año</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        const API_URL = "http://localhost:3000";
+
+        function cargarBarcos() {
+            axios.get(`${API_URL}/barcos`)
+                .then(response => {
+                    const barcos = response.data;
+                    const tabla = document.querySelector("#tablaBarcos tbody");
+                    tabla.innerHTML = "";
+                    barcos.forEach(barco => {
+                        tabla.innerHTML += `<tr>
+                            <td>${barco.id}</td>
+                            <td>${barco.nombre}</td>
+                            <td>${barco.capitan}</td>
+                            <td>${barco.paisOrigen}</td>
+                            <td>${barco.capacidad}</td>
+                            <td>${barco.tipo}</td>
+                            <td>${barco.anioConstruccion}</td>
+                        </tr>`;
+                    });
+                })
+                
+        }
+
+        document.getElementById("btnGetBarcos").addEventListener("click", cargarBarcos);
+
+        document.getElementById("formBarco").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const nuevoBarco = {
+                nombre: document.getElementById("nombreBarco").value,
+                capitan: document.getElementById("capitanBarco").value,
+                paisOrigen: document.getElementById("paisOrigen").value,
+                capacidad: document.getElementById("capacidad").value,
+                tipo: document.getElementById("tipoBarco").value,
+                anioConstruccion: document.getElementById("anioConstruccion").value
+            };
+            axios.post(`${API_URL}/barcos`, nuevoBarco).then(() => cargarBarcos());
+        });
+
+        function eliminarBarco() {
+            let id = prompt("Ingrese el ID del barco a eliminar:");
+            axios.delete(`${API_URL}/barcos/${id}`).then(() => cargarBarcos());
+        }
+        document.getElementById("btnDeleteBarco").addEventListener("click", eliminarBarco);
+
+        function actualizarBarco() {
+            let id = prompt("Ingrese el ID del barco a actualizar:");
+            let nuevoNombre = prompt("Nuevo nombre del barco:");
+            let nuevoCapitan = prompt("Nuevo nombre del capitan:");
+            let nuevoPais = prompt("Nuevo país del barco:");
+            let nuevaCapacidad = prompt("Nueva capacidad del barco:");
+            let nuevoTipo = prompt("Nuevo tipo del barco:");
+            let nuevoAnio = prompt("Nuevo año del barco:");
+            axios.put(`${API_URL}/barcos/${id}`, { nombre: nuevoNombre, capitan :nuevoCapitan, paisOrigen:nuevoPais,capacidad:nuevaCapacidad,tipo:nuevoTipo,anioConstruccion:nuevoAnio }).then(() => cargarBarcos());
+        }
+        document.getElementById("btnUpdateBarco").addEventListener("click", actualizarBarco);
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horario</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <!-- Menú de botones -->
+    <div class="menu-datos">
+        <button class="datos" id="obtener">Obtener datos</button>
+        <button class="datos" id="agregar">Agregar registro</button>
+        <button class="datos" id="act-todo">Actualizar datos</button>
+        <button class="datos" id="act-parcial">Actualizar parcialmente</button>
+        <button class="datos" id="eliminar">Eliminar registro</button>
+    </div>
+    <!-- Formulario para agregar datos -->
+    <div class="cont-form-agr hidden" id="cont-agregar">
+        <form class="formulario" id="formulario">
+            <label for="id">ID: 
+                <input type="number" name="id" id="id">
+            </label>
+            <label for="barco">Barco:
+                <input type="text" name="barco" id="barco">
+            </label>
+            <label for="empresa">Empresa:
+                <input type="text" name="empresa" id="empresa">
+            </label>
+            <label for="destino">Destino:
+                <input type="text" name="destino" id="destino">
+            </label>
+            <label for="salida">Hora de Salida:
+                <input type="text" name="salida" id="salida">
+            </label>
+            <div class="botones-flex">
+                <button type="submit">Agregar</button>
+                <button type="reset" class="cancelar" id="cancelar">Cancelar</button>
+            </div>
+        </form>
+    </div>
+    <!-- Formulario para actualizar datos con PUT -->
+    <div class="cont-form-act hidden" id="cont-actualizar">
+        <form class="formulario" id="formulario-actualizar">
+            <label for="barco-act">Barco:
+                <input type="text" name="barco-act" id="barco-act">
+            </label>
+            <label for="empresa-act">Empresa:
+                <input type="text" name="empresa-act" id="empresa-act">
+            </label>
+            <label for="destino-act">Destino:
+                <input type="text" name="destino-act" id="destino-act">
+            </label>
+            <label for="salida-act">Hora de Salida:
+                <input type="text" name="salida-act" id="salida-act">
+            </label>
+            <div class="botones-flex">
+                <button type="submit">Actualizar</button>
+                <button type="reset" class="cancelar" id="cancelar-act">Cancelar</button>
+            </div>
+        </form>
+    </div>
+    <!-- Formulario para actualizar datos con PATCH -->
+    <div class="cont-form-act-parc hidden" id="cont-actualizar-parc">
+        <form class="formulario" id="formulario-actualizar-parcial">
+            <label for="elem-act"></label>
+            <select id="elem-act">
+                <option selected disabled>Selecciona el elemento a cambiar</option>
+                <option value="barco">Barco</option>
+                <option value="empresa">Empresa</option>
+                <option value="destino">Destino</option>
+                <option value="salida">Hora de Salida</option>
+            </select>
+            <label for="elem-act-valor">
+                <input type="text" name="elem-act-valor" id="elem-act-valor">
+            </label>
+            <div class="botones-flex">
+                <button type="submit">Actualizar</button>
+                <button type="reset" class="cancelar" id="cancelar-act-parc">Cancelar</button>
+            </div>
+        </form>
+    </div>
+    <!-- Tabla para rellenar dinámicamente -->
+    <div class="cont-tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Barco</th>
+                    <th>Empresa</th>
+                    <th>Destino</th>
+                    <th>Salida</th>
+                </tr>
+            </thead>
+            <tbody id="tablaHorario">
+    
+            </tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
