@@ -148,8 +148,19 @@ document.getElementById("act-parcial").addEventListener("click", function () {
         return;
     }
 
-    document.getElementById("cont-actualizar-parc").classList.toggle("hidden");
+    axios.get(`${API_URL}/barcos`)
+    .then(response => {
+        const horario = response.data;
+        let datoParaModificar = horario.find(dato => dato.id === idParaModificarParcial)
 
+        if (!datoParaModificar) {
+            alert("No se encontró un barco con ese ID");
+            return;
+        }
+        document.getElementById("cont-actualizar-parc").classList.toggle("hidden");
+    })
+    .catch(error => console.error("Error en GET:", error));
+    
     actualizarParc(idParaModificarParcial);
 });
 
