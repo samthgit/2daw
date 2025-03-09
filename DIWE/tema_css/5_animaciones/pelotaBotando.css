@@ -1,0 +1,24 @@
+.bouncing-ball {
+    width: 50px;
+    height: 50px;
+    background-color: #3498db;
+    border-radius: 50%;
+    animation-name: bouncing;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    margin: 100px auto;
+}
+
+hr{margin: -100px;}
+
+@keyframes bouncing {
+    0% {
+    transform: translateY(0);
+    animation-timing-function: ease-in;
+    }
+    50% {
+    transform: translateY(-100px);
+    animation-timing-function: ease-out;
+    }
+}

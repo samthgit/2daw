@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabiduría Zen</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script defer src="logica.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+</head>
+<body>
+    <header>
+        <h1 id="titulo">Sabiduría Zen</h1> <!-- Se ha añadido un id para seleccionarlo -->
+        <img src="https://i2.wp.com/comofuncionaque.com/wp-content/uploads/2016/04/budismo.jpg?fit=1024%2C682" alt="Paisaje Zen con Buda y naturaleza" class="imagen-zen">
+    </header>
+
+    <!-- Lista de dichos zen -->
+    <section>
+        <h2>Dichos de Sabiduría</h2>
+        <ul id="lista-dichos">
+            <li>"El obstáculo es el camino"</li>
+            <li>"Cuando el alumno está listo, el maestro aparece"</li>
+            <li>"No busques la verdad, solo deja de aferrarte a las opiniones"</li>
+        </ul>
+        <button id="agregar-dicho">Añadir Dicho</button>
+        <button id="eliminar-dicho">Eliminar Último Dicho</button>
+    </section>
+
+    <!-- Formulario -->
+    <section>
+        <h2>Comparte tu sabiduría</h2>
+        <form id="formulario">
+            <label for="dicho">Tu Dicho Zen:</label>
+            <input type="text" id="dicho" name="dicho">
+            <button type="submit">Enviar</button>
+        </form>
+        <p id="mensaje"></p>
+    </section>
+
+    <!-- Tabla de dichos obtenidos del servidor -->
+    <section>
+        <h2>Dichos Zen desde el Servidor</h2>
+        <button id="cargar-dichos">Cargar Dichos</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Dicho</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-dichos"></tbody>
+        </table>
+    </section>
+</body>
+</html>

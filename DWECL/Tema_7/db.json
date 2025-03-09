@@ -9,10 +9,10 @@
     },
     {
       "id": "2",
-      "barco": "Milano",
+      "barco": "La Pinta",
       "empresa": "Balearia",
-      "destino": "Tánger",
-      "salida": "12:30"
+      "destino": "Haiti",
+      "salida": "13:00"
     }
   ]
 }

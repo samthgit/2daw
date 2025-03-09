@@ -1,0 +1,22 @@
+:root {
+    --principal-color: black; /* Variable personalizada --principal-color */
+    --secondary-color: brown;
+    --third-color: blue;
+    --principal-gradient: linear-gradient(to right, blue 250px, green 50%);
+    --font: "Arial";
+}
+
+.clase {
+    background-color: var(--principal-color);
+    font-family: var(--font);
+    color: var(--third-color);
+}
+
+p {
+    color: var(--secondary-color);
+}
+
+div {
+    background: var(--principal-gradient);
+    font-family: var(--font);
+}

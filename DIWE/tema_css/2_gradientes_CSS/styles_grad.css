@@ -1,0 +1,35 @@
+:root {
+    --h: 100px;
+    --m-b: 10px;
+    --t-a: center;
+    --p: 10px;
+    --pp-color: white;
+}
+
+.contenedor {
+    color: var(--pp-color);
+    height: var(--h);
+    margin-bottom: var(--m-b);
+    padding-top: var(--p);
+    text-align: var(--t-a);
+}
+
+.c1 {
+    background: radial-gradient(ellipse, rgba(176,174,238,1) 0%, rgba(29,30,31,1));
+}
+
+.c2 {
+    background: radial-gradient(circle,red,brown,orange,yellow,blue);
+}
+
+.c3 {
+    background: radial-gradient(circle,red 300px,brown 400px,orange 700px);
+}
+
+.c4 {
+    background: radial-gradient(#000, #ccc);
+}
+
+.c5 {
+    background: radial-gradient(farthest-side, #ff5733, #ffca3a);
+}
